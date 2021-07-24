@@ -77,3 +77,36 @@ print(zero_matrix_mxn(A))
 
 A = np.array([[1,2,3],[4,5,6],[7,0,9]])
 print(zero_matrix_mxn(A))
+
+# def zero_matrix_O1(mat):
+
+#     for i in range(len(mat)):
+#         for j in range(len(mat)):
+#             if mat[i][j] == 0:
+#                 mat[i][0] = 0
+#                 mat[0][j] = None
+
+#     for i in range(len(mat)):
+#         if mat[i][0] == 0:
+#             for j in range(len(mat[0])):
+#                 mat[i][j] = 0
+
+#     for j in range(len(mat[0])):
+#         if mat[0][j] == None:
+#             for i in range(len(mat)):
+#                 mat[i][j] = 0
+
+#     return mat
+
+
+# A = np.array([[1,2,3],[4,5,6],[7,8,9]])
+# print(zero_matrix_O1(A))
+
+# A = np.array([[0,2,3],[4,5,6],[7,8,9]])
+# print(zero_matrix_O1(A))
+
+# A = np.array([[0,2,3],[4,5,6],[7,8,0]])
+# print(zero_matrix_O1(A))
+
+# A = np.array([[1,2,3],[4,5,6],[7,0,9]])
+# print(zero_matrix_O1(A))
