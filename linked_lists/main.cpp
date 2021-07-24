@@ -17,5 +17,10 @@ int main()
     // cout << "n.next->data = " << n.next->data << endl;
     n.printLinkedList();
 
+    Node* head = n.deleteNode(&n, 8);
+    n = *head;
+    n.printLinkedList();
+
+
     return 0;
 }
