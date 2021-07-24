@@ -82,6 +82,20 @@ Node* Node::returnKthToLast(int k) {
     return kth;
 }
 
+void Node::deleteMiddleNode(Node* node) {
+
+    if (node->next == NULL) {
+        /* node is not in the middle */
+        return;
+    } else if (node == this) {
+        /* node is not in the middle */
+        return;
+    } else {
+        node->data = node->next->data;
+        node->next = node->next->next;
+    }
+}
+
 void Node::printLinkedList() {
 
     Node* curr = this;

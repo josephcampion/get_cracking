@@ -38,10 +38,17 @@ int main()
     x.removeDuplicates();
     x.printLinkedList();
 
+    cout << endl;
     cout << "Test return kth from last:" << endl;
-    int k = 3;
+    int k = 1;
     Node* kthFromLast = x.returnKthToLast(k);
     kthFromLast->printLinkedList();
+    
+    cout << endl;
+    cout << "Test deleting middle node given only pointer to node:" << endl;
+    x.printLinkedList();
+    x.deleteMiddleNode(kthFromLast);
+    x.printLinkedList();
 
     return 0;
 }

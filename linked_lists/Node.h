@@ -14,6 +14,7 @@ class Node
     Node* deleteNode(int d);
     void removeDuplicates();
     Node* returnKthToLast(int k);
+    void deleteMiddleNode(Node* node);
     void printLinkedList();
     // Node deleteNode(Node head, int d);
 
