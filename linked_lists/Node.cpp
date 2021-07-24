@@ -6,19 +6,18 @@ using namespace std;
 
 
 Node::Node(int d) {
-    // cout << "Node constructed." << endl;
     Node* next = NULL;
     this->next = NULL; /* not sure why this is necessary, but it helps */
     // TODO: make this a doubly linked list:
     // Node* prev = NULL;
     data = d;
+    // TODO: keep track of size of linked list:
+    // size = 1;
 }
 
 void Node::appendToTail(int d) {
     Node* end = new Node(d);
     Node* curr = this;
-    // cout << "this->data: " << this->data << endl;
-    // cout << "n.next = " << n.next << endl;
 
     while (curr->next != NULL) {
         curr = curr->next;
@@ -66,6 +65,23 @@ void Node::removeDuplicates() {
     }
 }
 
+Node* Node::returnKthToLast(int k) {
+    Node* curr = this;
+    Node* kth = this;
+
+    /* go through linked list */
+    int nth = 0;
+    while (curr->next != NULL) {
+        if (nth >= k) {
+            kth = kth->next;
+        }
+        curr = curr->next;
+        nth++;
+    }
+    
+    return kth;
+}
+
 void Node::printLinkedList() {
 
     Node* curr = this;
@@ -75,5 +91,5 @@ void Node::printLinkedList() {
         curr = curr->next;
         cout << "(" << curr->data << ")->";
     }
-    cout << "NULL" << endl << endl;
+    cout << "NULL" << endl;
 }
