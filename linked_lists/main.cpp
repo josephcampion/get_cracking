@@ -26,14 +26,10 @@ int main()
     cout << endl;
     cout << "Test removeDuplicates method:" << endl;
     Node x(1);
-    x.appendToTail(-2);
-    x.appendToTail(7);
-    x.appendToTail(7);
-    x.appendToTail(9);
-    x.appendToTail(9);
-    x.appendToTail(-2);
-    x.appendToTail(6);
-    x.appendToTail(-2);
+    vector<int> v = {-2,7,7,9,9,-2,6,-2};
+    for (auto vi: v) {
+        x.appendToTail(vi);
+    }
     x.printLinkedList();
 
     x.removeDuplicates();
@@ -54,13 +50,13 @@ int main()
     cout << endl;
     cout << "Test partition:" << endl;
     Node y(3);
-    vector<int> v = {5,8,5,10,2,1};
+    v = {5,8,5,10,2,1};
     for (auto vi: v) {
         y.appendToTail(vi);
     }
     y.printLinkedList();
-    y.partitiion(5);
-
+    Node* z = y.partitiion(5);
+    z->printLinkedList();
 
     return 0;
 }

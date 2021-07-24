@@ -98,23 +98,35 @@ void Node::deleteMiddleNode(Node* node) {
 
 Node* Node::partitiion(int x) {
 
-    Node* left = this;
-    Node* right = this;
+    Node* left = NULL;
+    Node* right = NULL;
 
-    if (this->data < x) {
-        /* find first value >= x for "right" head */
-        while (right->data < x && right->next != NULL) {
-            right = right->next;
-        }
-    } else {
-        /* find first value < x for "left" head */
-        while (left->data >= x && left->next != NULL) {
-            left = left->next;
+    Node* curr = this;
+
+    while (curr != NULL) {
+        if (curr->data < x) {
+            Node* tmp = curr;
+            curr = curr->next;
+            tmp->next = left;
+            left = tmp;
+        } else {
+            Node* tmp = curr;
+            curr = curr->next;
+            tmp->next = right;
+            right = tmp;
         }
     }
 
-    left->printLinkedList();
-    right->printLinkedList();
+    if (left != NULL) { left->printLinkedList(); }
+    if (right != NULL) { right->printLinkedList(); }
+
+    // TODO: fix so we don't have to traverse this again
+    curr = left;
+    while (curr->next != NULL) {
+        curr = curr->next;
+    }
+    curr->next = right;
+
     return left;
 }
 
