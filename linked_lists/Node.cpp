@@ -25,24 +25,28 @@ void Node::appendToTail(int d) {
     curr->next = end;
 }
 
-Node* Node::deleteNode(Node* head, int d) {
-    if (head == NULL) { return NULL; }
-    Node* curr = head;
+Node* Node::deleteNode(int d) {
+    if (this == NULL) { return NULL; }
+    Node* curr = this;
 
     if (curr->data == d) {
-        return head->next; /* moved head */
+        return this->next; /* moved head */
     }
 
     while (curr->next != NULL) {
         if (curr->next->data == d) {
             curr->next = curr->next->next;
-            return head; /* head didn't change */
+            return this; /* head didn't change */
         }
         curr = curr->next;
     }
 
-    return head;
+    return this;
 }
+
+// void Node::removeDuplicates() {
+
+// }
 
 void Node::printLinkedList() {
 

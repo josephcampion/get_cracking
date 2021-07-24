@@ -17,7 +17,7 @@ int main()
     // cout << "n.next->data = " << n.next->data << endl;
     n.printLinkedList();
 
-    Node* head = n.deleteNode(&n, 8);
+    Node* head = n.deleteNode(5);
     n = *head;
     n.printLinkedList();
 
