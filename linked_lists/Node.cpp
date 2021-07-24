@@ -96,6 +96,28 @@ void Node::deleteMiddleNode(Node* node) {
     }
 }
 
+Node* Node::partitiion(int x) {
+
+    Node* left = this;
+    Node* right = this;
+
+    if (this->data < x) {
+        /* find first value >= x for "right" head */
+        while (right->data < x && right->next != NULL) {
+            right = right->next;
+        }
+    } else {
+        /* find first value < x for "left" head */
+        while (left->data >= x && left->next != NULL) {
+            left = left->next;
+        }
+    }
+
+    left->printLinkedList();
+    right->printLinkedList();
+    return left;
+}
+
 void Node::printLinkedList() {
 
     Node* curr = this;

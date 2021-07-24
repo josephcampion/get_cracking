@@ -1,6 +1,7 @@
 #include "Node.h"
 #include <cstdlib>
 #include <iostream>
+#include <vector>
 
 using namespace std;
 
@@ -49,6 +50,17 @@ int main()
     x.printLinkedList();
     x.deleteMiddleNode(kthFromLast);
     x.printLinkedList();
+
+    cout << endl;
+    cout << "Test partition:" << endl;
+    Node y(3);
+    vector<int> v = {5,8,5,10,2,1};
+    for (auto vi: v) {
+        y.appendToTail(vi);
+    }
+    y.printLinkedList();
+    y.partitiion(5);
+
 
     return 0;
 }
