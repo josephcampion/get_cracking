@@ -11,6 +11,7 @@ class Node
     Node(int d);
     void appendToTail(int d);
     Node* deleteNode(int d);
+    void removeDuplicates();
     void printLinkedList();
     // Node deleteNode(Node head, int d);
 

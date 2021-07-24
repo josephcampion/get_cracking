@@ -1,4 +1,6 @@
 #include <iostream>
+#include <vector>
+#include <algorithm>
 #include "Node.h"
 using namespace std;
 
@@ -6,6 +8,7 @@ using namespace std;
 Node::Node(int d) {
     // cout << "Node constructed." << endl;
     Node* next = NULL;
+    this->next = NULL; /* not sure why this is necessary, but it helps */
     // TODO: make this a doubly linked list:
     // Node* prev = NULL;
     data = d;
@@ -19,7 +22,6 @@ void Node::appendToTail(int d) {
 
     while (curr->next != NULL) {
         curr = curr->next;
-        cout << "found next" << endl;
     }
 
     curr->next = end;
@@ -44,20 +46,34 @@ Node* Node::deleteNode(int d) {
     return this;
 }
 
-// void Node::removeDuplicates() {
+void Node::removeDuplicates() {
+    vector<int> allData;
 
-// }
+    Node* curr = this;
+
+    allData.push_back(this->data);
+
+    while (curr->next != NULL) {
+
+        int nextData = curr->next->data;
+
+        if (find(allData.begin(), allData.end(), nextData) != allData.end()) {
+            curr->next = curr->next->next;
+        } else {
+            allData.push_back(nextData);
+            curr = curr->next;
+        }
+    }
+}
 
 void Node::printLinkedList() {
 
     Node* curr = this;
-    int id = 0;
-    cout << "(HEAD-" << id << ": " << curr->data << ")->";
+    cout << "(HEAD " << curr->data << ")->";
 
     while (curr->next != NULL) {
         curr = curr->next;
-        id++;
-        cout << "(" << id << ", " << curr->data << ")->";
+        cout << "(" << curr->data << ")->";
     }
     cout << "NULL" << endl << endl;
 }

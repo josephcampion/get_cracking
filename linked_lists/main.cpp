@@ -6,12 +6,10 @@ using namespace std;
 
 int main()
 {
-    int d = 3;
-    Node n(d);
+    Node n(3);
     n.printLinkedList();
 
     n.appendToTail(5);
-    
     n.appendToTail(8);
     // cout << "n.next = " << n.next << endl;
     // cout << "n.next->data = " << n.next->data << endl;
@@ -21,6 +19,21 @@ int main()
     n = *head;
     n.printLinkedList();
 
+    /* Testing removeDuplicates */
+
+    Node x(1);
+    x.appendToTail(-2);
+    x.appendToTail(7);
+    x.appendToTail(7);
+    x.appendToTail(9);
+    x.appendToTail(9);
+    x.appendToTail(-2);
+    x.appendToTail(6);
+    x.appendToTail(-2);
+    x.printLinkedList();
+
+    x.removeDuplicates();
+    x.printLinkedList();
 
     return 0;
 }
