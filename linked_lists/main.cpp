@@ -74,5 +74,16 @@ int main()
     cout << "sum of a + b = " << endl;
     c.printLinkedList();
 
+    cout << endl;
+    cout << "Test method to check if list is a palindrome:" << endl;
+    Node w(1);
+    v = {2, 3, 7, 9, 7, 3, 2, 1};
+    for (auto vi: v) {
+        w.appendToTail(vi);
+    }
+    w.printLinkedList();
+    cout << "is a palindrome: " << w.isPalindrome();
+    cout << endl;
+
     return 0;
 }

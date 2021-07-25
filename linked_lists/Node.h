@@ -17,6 +17,7 @@ class Node
     void deleteMiddleNode(Node* node);
     Node* partition(int x);
     Node sumLists(Node* other);
+    bool isPalindrome();
     void printLinkedList();
     // Node deleteNode(Node head, int d);
 

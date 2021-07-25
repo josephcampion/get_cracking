@@ -175,6 +175,27 @@ Node Node::sumLists(Node* other) {
     return n;
 }
 
+bool Node::isPalindrome() {
+    vector<int> v;
+
+    Node* curr = this;
+
+    while (curr != NULL) {
+        v.push_back(curr->data);
+        curr = curr->next;
+    }
+
+    int sz = v.size();
+
+    for (int i = 0; i < sz / 2; ++i) {
+        if (v[i] != v[sz-i-1]) {
+            return false;
+        }        
+    }
+
+    return true;
+}
+
 void Node::printLinkedList() {
 
     Node* curr = this;
