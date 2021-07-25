@@ -60,9 +60,9 @@ int main()
 
     cout << endl;
     cout << "Test summing two nodes:" << endl;
-    Node a(1);
+    Node a(7);
     a.appendToTail(2);
-    a.appendToTail(3);
+    a.appendToTail(5);
     a.printLinkedList();
 
     Node b(4);

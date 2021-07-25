@@ -136,7 +136,18 @@ Node Node::sumLists(Node* other) {
     Node* curr_this = this;
     Node* curr_other = other;
 
-    Node n(curr_this->data + curr_other->data);
+    bool carry = false;
+    int curr_sum = curr_this->data + curr_other->data;
+
+    Node n(0);
+
+    if (curr_sum >= 10) {
+        n.data = (curr_sum % 10);
+        carry = true;
+    } else {
+        n.data = curr_sum;
+    }
+    
 
     // TODO: make this work for digits of different size:
     while (curr_this->next != NULL && curr_other->next != NULL) {
@@ -144,8 +155,22 @@ Node Node::sumLists(Node* other) {
         curr_this = curr_this->next;
         curr_other = curr_other->next;
 
-        n.appendToTail(curr_this->data + curr_other->data);
+        curr_sum = curr_this->data + curr_other->data;
+
+        if (carry) {
+            curr_sum++;
+        }
+
+        if (curr_sum >= 10) {
+            n.appendToTail(curr_sum % 10);
+            carry = true;
+        } else {
+            n.appendToTail(curr_sum);
+            carry = false;
+        }
     }
+
+    if (carry) { n.appendToTail(1); }
 
     return n;
 }
