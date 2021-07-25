@@ -55,8 +55,24 @@ int main()
         y.appendToTail(vi);
     }
     y.printLinkedList();
-    Node* z = y.partitiion(5);
+    Node* z = y.partition(5);
     z->printLinkedList();
+
+    cout << endl;
+    cout << "Test summing two nodes:" << endl;
+    Node a(1);
+    a.appendToTail(2);
+    a.appendToTail(3);
+    a.printLinkedList();
+
+    Node b(4);
+    b.appendToTail(5);
+    b.appendToTail(6);
+    b.printLinkedList();
+
+    Node c = a.sumLists(&b);
+    cout << "sum of a + b = " << endl;
+    c.printLinkedList();
 
     return 0;
 }

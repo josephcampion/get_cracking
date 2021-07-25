@@ -96,7 +96,7 @@ void Node::deleteMiddleNode(Node* node) {
     }
 }
 
-Node* Node::partitiion(int x) {
+Node* Node::partition(int x) {
 
     Node* left = NULL;
     Node* right = NULL;
@@ -128,6 +128,26 @@ Node* Node::partitiion(int x) {
     curr->next = right;
 
     return left;
+}
+
+
+Node Node::sumLists(Node* other) {
+
+    Node* curr_this = this;
+    Node* curr_other = other;
+
+    Node n(curr_this->data + curr_other->data);
+
+    // TODO: make this work for digits of different size:
+    while (curr_this->next != NULL && curr_other->next != NULL) {
+
+        curr_this = curr_this->next;
+        curr_other = curr_other->next;
+
+        n.appendToTail(curr_this->data + curr_other->data);
+    }
+
+    return n;
 }
 
 void Node::printLinkedList() {
