@@ -197,7 +197,7 @@ bool Node::isPalindrome() {
     return true;
 }
 
-Node Node::makeIntersectingNode(vector<int> added_values) {
+Node Node::makeIntersection(vector<int> added_values) {
 
     Node n(added_values[0]);
 
@@ -239,6 +239,24 @@ Node* Node::intersection(Node* other) {
     }
 
     return NULL;
+}
+
+Node* Node::makeLoop(int d) {
+
+    Node* middle = NULL;
+    Node* curr = this;
+
+    while (curr->next != NULL) {
+        if (curr->data == d) {
+            cout << "Found data" << endl;
+            middle = curr;
+        }
+        curr = curr->next;
+    }
+
+    curr->next = middle;
+
+    return middle;
 }
 
 void Node::printLinkedList() {

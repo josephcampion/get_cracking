@@ -96,7 +96,7 @@ int main()
     nv.printLinkedList();
 
     vector<int> u = {4,3,8};
-    Node nu = nv.makeIntersectingNode(u);
+    Node nu = nv.makeIntersection(u);
     nu.printLinkedList();
 
     cout << "intersection: " << endl;
@@ -106,6 +106,12 @@ int main()
     cout << "check other way around: " << endl;
     intersection = nu.intersection(&nv);
     intersection->printLinkedList();
+
+    cout << "Test making loop: " << endl;
+    Node* loop = nv.makeLoop(3);
+    /* this results in an infinite loop: */
+    // loop->printLinkedList();
+    
 
     return 0;
 }
