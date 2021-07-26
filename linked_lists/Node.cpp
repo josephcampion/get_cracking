@@ -248,7 +248,7 @@ Node* Node::makeLoop(int d) {
 
     while (curr->next != NULL) {
         if (curr->data == d) {
-            cout << "Found data" << endl;
+            // cout << "Found data" << endl;
             middle = curr;
         }
         curr = curr->next;
@@ -257,6 +257,23 @@ Node* Node::makeLoop(int d) {
     curr->next = middle;
 
     return middle;
+}
+
+Node* Node::detectLoop() {
+
+    set<Node*> seen;
+    Node* curr = this;
+
+    while (curr->next != NULL) {
+        if (seen.find(curr) != seen.end()) {
+            seen.insert(curr);
+        } else {
+            return curr;
+        }
+        curr = curr->next;
+    }
+
+    return NULL;
 }
 
 void Node::printLinkedList() {

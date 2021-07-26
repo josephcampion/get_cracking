@@ -111,7 +111,8 @@ int main()
     Node* loop = nv.makeLoop(3);
     /* this results in an infinite loop: */
     // loop->printLinkedList();
-    
+    Node* loop_start = loop->detectLoop();
+    cout << "loop head = " << loop_start->getData() << endl;
 
     return 0;
 }

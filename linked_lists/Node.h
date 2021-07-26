@@ -12,6 +12,7 @@ class Node
 
     public:
     Node(int d);
+    int getData() { return this->data; }
     void appendToTail(int d);
     Node* deleteNode(int d);
     void removeDuplicates();
@@ -23,6 +24,7 @@ class Node
     Node makeIntersection(std::vector<int> added_values);
     Node* intersection(Node* other);
     Node* makeLoop(int d);
+    Node* detectLoop();
     void printLinkedList();
     // Node deleteNode(Node head, int d);
 
