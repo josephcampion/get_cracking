@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <set>
 #include <algorithm>
 #include "Node.h"
 using namespace std;
@@ -117,8 +118,8 @@ Node* Node::partition(int x) {
         }
     }
 
-    if (left != NULL) { left->printLinkedList(); }
-    if (right != NULL) { right->printLinkedList(); }
+    // if (left != NULL) { left->printLinkedList(); }
+    // if (right != NULL) { right->printLinkedList(); }
 
     // TODO: fix so we don't have to traverse this again
     curr = left;
@@ -194,6 +195,50 @@ bool Node::isPalindrome() {
     }
 
     return true;
+}
+
+Node Node::makeIntersectingNode(vector<int> added_values) {
+
+    Node n(added_values[0]);
+
+    for (int i = 1; i < added_values.size(); ++i) {
+        n.appendToTail(added_values[i]);
+    }
+    n.printLinkedList();
+
+    Node* curr = &n;
+
+    while (curr->next != NULL) {
+        curr = curr->next;
+    }
+    // cout << "end value = " << curr->data << endl;
+    
+    curr->next = this;
+
+    return n;
+}
+
+Node* Node::intersection(Node* other) {
+
+    set<Node*> nodes;
+
+    Node* curr = this;
+
+    while (curr != NULL) {
+        nodes.insert(curr);
+        curr = curr->next;
+    }
+
+    curr = other;
+
+    while (curr != NULL) {
+        if (nodes.find(curr) != nodes.end()) {
+            return curr;
+        }
+        curr = curr->next;
+    }
+
+    return NULL;
 }
 
 void Node::printLinkedList() {

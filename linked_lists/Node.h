@@ -1,6 +1,8 @@
 #ifndef NODE_H
 #define NODE_H
 
+#include <vector>
+
 class Node
 {
     private:
@@ -18,6 +20,8 @@ class Node
     Node* partition(int x);
     Node sumLists(Node* other);
     bool isPalindrome();
+    Node makeIntersectingNode(std::vector<int> added_values);
+    Node* intersection(Node* other);
     void printLinkedList();
     // Node deleteNode(Node head, int d);
 

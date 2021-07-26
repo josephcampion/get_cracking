@@ -85,5 +85,27 @@ int main()
     cout << "is a palindrome: " << w.isPalindrome();
     cout << endl;
 
+    cout << endl;
+    cout << "Test intersection: " << endl;
+
+    Node nv(5);
+    v = {2, 3, 7, 9};
+    for (auto vi: v) {
+        nv.appendToTail(vi);
+    }
+    nv.printLinkedList();
+
+    vector<int> u = {4,3,8};
+    Node nu = nv.makeIntersectingNode(u);
+    nu.printLinkedList();
+
+    cout << "intersection: " << endl;
+    Node* intersection = nv.intersection(&nu);
+    intersection->printLinkedList();
+
+    cout << "check other way around: " << endl;
+    intersection = nu.intersection(&nv);
+    intersection->printLinkedList();
+
     return 0;
 }
