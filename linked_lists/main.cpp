@@ -96,7 +96,7 @@ int main()
     nv.printLinkedList();
 
     vector<int> u = {4,3,8};
-    Node nu = nv.makeIntersection(u);
+    Node nu = nv.makeIntersectingNode(u);
     nu.printLinkedList();
 
     cout << "intersection: " << endl;

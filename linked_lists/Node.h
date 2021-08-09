@@ -21,7 +21,7 @@ class Node
     Node* partition(int x);
     Node sumLists(Node* other);
     bool isPalindrome();
-    Node makeIntersection(std::vector<int> added_values);
+    Node makeIntersectingNode(std::vector<int> added_values);
     Node* intersection(Node* other);
     Node* makeLoop(int d);
     Node* detectLoop();

@@ -197,7 +197,7 @@ bool Node::isPalindrome() {
     return true;
 }
 
-Node Node::makeIntersection(vector<int> added_values) {
+Node Node::makeIntersectingNode(vector<int> added_values) {
 
     Node n(added_values[0]);
 
